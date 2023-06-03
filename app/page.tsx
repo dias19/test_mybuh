@@ -1,9 +1,11 @@
-import Image from 'next/image'
+import './globals.css';
 
 export default function Home() {
   return (
-    <div>
-      slam
-    </div>
+    <main className="flex min-h-screen flex-col  justify-between">
+   <div className='bg-gray-300'>
+    salam
+   </div>
+    </main>
   )
 }
