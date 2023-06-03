@@ -9,6 +9,20 @@ import SocialStatus from "./social-status";
 
 export default function Calculator() {
   const [isAccountingForEmployee, setIsAccountingForEmployee] = useState(true);
+  
+  const [dataForm, setDataForm]=useState<Data>({
+    year: 2023,
+    salary: undefined,
+    is_staff_member: true,
+    is_staff_member_gph: false,
+    is_resident: true,
+    is_citizen_cis: false,
+    has_citizen_permit: false,
+    is_deduction_14: false,
+    is_deduction_882:false,
+    social_statuses: [],
+  })
+
   return (
     <div className="h-[750px] border-2 border-gray-500 flex flex-col p-8">
       <DetailsCalculation />
