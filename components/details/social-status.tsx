@@ -77,8 +77,6 @@ export default function SocialStatus({
     }
     }
 
-  console.log(socialStatuses);
-
   return (
     <div className="flex w-full pb-4 mb-4 border-b-2 p-2">
       <p className="font-bold text-lg w-1/6">Социальный статус</p>

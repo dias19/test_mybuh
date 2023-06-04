@@ -1,6 +1,6 @@
 interface Data {
   year: number;
-  salary: number | undefined;
+  salary: number | 0;
   is_staff_member: boolean;
   is_staff_member_gph: boolean;
   is_resident: boolean;
