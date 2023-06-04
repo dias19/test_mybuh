@@ -78,7 +78,7 @@ function CalculationResults({ socialStatuses, showResults }: Props) {
             <p className="text-base md:text-3xl">{CSHIC_PAID.toFixed(2)} тг</p>
           </div>
         )}
-        {(isCompanyPaysCSHI || isCompanyPaysSSC) && 
+        {(isCompanyPaysCSHI || isCompanyPaysSSC || isCompanyPaysCOPC) && 
           <p className="text-base md:text-lg text-gray-500 mt-4"> За счет компании: </p>
         }
         {isCompanyPaysSSC && (
