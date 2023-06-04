@@ -7,12 +7,12 @@ export default function Income() {
   const {register, formState: {errors}}=methods;
 
   return (
-    <div className="flex flex-col w-full pb-4 mb-4 border-b-2 p-2">
-      <div className="flex items-center">
-        <p className="font-bold text-lg w-1/6">Доход</p>
+    <div className="flex flex-col pb-2 mb-2 w-full md:pb-4 md:mb-4 border-b-2">
+      <div className="flex flex-col md:flex-row md:items-center">
+        <p className="font-bold text-lg md:w-1/6">Доход</p>
         <div className="flex">
-          <div className="flex border-2 rounded border-gray-200">
-            <select className="px-2 py-2">
+          <div className="flex flex-col md:flex-row border-2 rounded border-gray-200">
+            <select className="w-full overflow-hidden px-2 py-2">
               <option hidden>Вид зачислении...</option>
               <option value="wage">Зарплата</option>
               <option value="business_trip">
@@ -33,15 +33,15 @@ export default function Income() {
             <input
               type="number"
               placeholder="Сумма..."
-              className="border-l-2 px-2 py-2"
+              className="border-t-2 md:border-t-0 md:border-l-2 px-2 py-2"
               {...register('salary')}
             />
           </div>
         </div>
       </div>
-      <div className="flex items-center mt-4">
+      <div className="flex flex-col md:flex-row md:items-center mt-4">
         <p className="font-bold text-lg w-1/6">Вычеты</p>
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
           <div className="flex items-center mr-4">
             <input type="checkbox" className="w-[18px] h-[18px] mr-1" {...register('is_deduction_14')}/>
             <span className="text-lg pl-4">Вычет 14 МРП</span>

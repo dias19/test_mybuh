@@ -20,9 +20,9 @@ export default function Residency() {
     }
   };
   return (
-    <div className="flex w-full pb-4 mb-4 border-b-2 p-2">
+    <div className="flex flex-col pb-2 mb-2 border-b-2 w-full md:flex-row md:pb-4 md:mb-4">
       <p className="font-bold text-lg w-1/6">Резиденство</p>
-      <div className="grid grid-cols-2">
+      <div className="flex flex-col md:grid md:grid-cols-2">
         <div className="flex items-center mr-4">
           <input
             type="checkbox"

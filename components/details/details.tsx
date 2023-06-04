@@ -20,7 +20,7 @@ export default function Details({socialStatuses, setSocialStatuses, setShowResul
    const {formState: {isValid}}=methods;
 
   return (
-    <div className="h-[750px] border-2 border-gray-500 flex flex-col p-8">
+    <div className="h-auto border-2 border-gray-500 flex flex-col p-8 md:h-[750px]">
       <DetailsCalculation />
       <Account/>
       <Income />
@@ -34,7 +34,7 @@ export default function Details({socialStatuses, setSocialStatuses, setShowResul
           type="button"
           disabled={!isValid}
           onClick={() => setShowResults(true)}
-          className="text-white bg-black disabled:bg-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-40 py-3 mr-2 mb-2">
+          className="text-white px-20 py-1 bg-black disabled:bg-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm md:px-40 md:py-3 mr-2 mb-2">
           Расчитать
         </button>
       </div>
