@@ -74,6 +74,7 @@ export default function SocialStatus({
     }
     else{
       setIsDisabled(!isDisabled)
+      setSocialStatuses((prevStatuses: SocialStatuses[]) => [...prevStatuses, 'd_group_1_time'])
     }
     }
 
@@ -95,7 +96,6 @@ export default function SocialStatus({
               className={`px-2 py-2 ${!isPensioner ? "bg-gray-200" : "none"}`}
               onChange={(e: any) => addSocialStatusSelect(e.target.value, 'pensioner')}
             >
-              <option hidden>Выберите группу</option>
               <option value="p_by_age">По возрасту</option>
               <option value="p_else">Прочие группы</option>
             </select>
@@ -115,7 +115,6 @@ export default function SocialStatus({
               className={`px-2 py-2 ${!isDisabled ? "bg-gray-200" : "none"}`}
               onChange={(e: any) => addSocialStatusSelect(e.target.value, 'disabled')}
             >
-              <option hidden>Выберите группу</option>
               <option value="d_group_1_time">1 группа</option>
               <option value="d_group_1">1 группа бессрочно</option>
               <option value="d_group_2_time">2 группа</option>

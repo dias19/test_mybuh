@@ -36,8 +36,7 @@ export const CSHI_MAX: {[key: number]: number}={
     2022: 18000,
     2021: 8500
 }
-
-export const IIT_RATE=0.1;
+export const COPC_RATE=0.05;
 
 export const MRP: {[key:number]: number}={
     2023: 3450,

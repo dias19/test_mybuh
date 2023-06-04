@@ -14,7 +14,7 @@ interface Data {
 type SocialStatuses =
   | "p_by_age"
   | "p_else"
-  | " d_group_1_time"
+  | "d_group_1_time"
   | "d_group_1"
   | "d_group_2_time"
   | "d_group_2"

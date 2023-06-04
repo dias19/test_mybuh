@@ -1,9 +1,9 @@
 import {
+    COPC_RATE,
   CSHIC_MAX,
   CSHIC_RATE,
   CSHI_MAX,
   CSHI_RATE,
-  IIT_RATE,
   MRP,
   OPV_MAX,
   OPV_RATE,
@@ -35,15 +35,21 @@ export const useCalculateTaxes = (
 
   const cshicPaid = isPersonPaysCSHIC ? CSHIC_PAID : 0;
 
+  const iitRate= data.salary > 25 * MRP[data.year] ? 0.1 : 0.01;
+
   const { isPersonPayingIIT, IIT_PAID } = iitCalculation(
     data,
     socialStatuses,
     opvPaid,
-    cshicPaid
+    cshicPaid,
+    iitRate,
   );
 
   const iitPaid=isPersonPayingIIT ? IIT_PAID : 0;
 
+  const isCompanyPaysCOPC= socialStatuses.includes('receiver_oppv');
+
+  const COPC_PAID= data.salary * COPC_RATE;
 
   const EmployeeReceives = data.salary - opvPaid - cshicPaid - iitPaid;
   return {
@@ -52,8 +58,10 @@ export const useCalculateTaxes = (
     isPersonPayingIIT,
     isCompanyPaysSSC,
     isCompanyPaysCSHI,
+    isCompanyPaysCOPC,
     EmployeeReceives,
     OPV_PAID,
+    COPC_PAID,
     CSHIC_PAID,
     SSC_PAID,
     CSHI_PAID,
@@ -70,20 +78,17 @@ function opvCalculation(data: Data, socialStatuses: SocialStatuses[]) {
   const socialGroupsNotPaying = [
     "p_by_age",
     "p_else",
-    "d_group_1_time",
-    "d_group_2_time",
+    "d_group_1",
+    "d_group_2",
   ];
 
   const isSociallyNotPayingOPV = socialStatuses?.some((status) =>
     socialGroupsNotPaying.includes(status)
   );
 
-  console.log(data, socialStatuses);
   const isPersonPaysOPV = !isForeignerNotPayingOPV && !isSociallyNotPayingOPV;
 
   const OPV_PAID = paidOPV();
-
-  console.log(OPV_MAX[data.year]);
 
   function paidOPV() {
     if (OPV_RATE * data.salary > OPV_MAX[data.year]) {
@@ -201,7 +206,8 @@ function iitCalculation(
   data: Data,
   socialStatuses: SocialStatuses[],
   OPV_PAID: number,
-  CSHIC_PAID: number
+  CSHIC_PAID: number,
+  IIT_RATE: number,
 ) {
   const { is_deduction_14, is_deduction_882 } = data;
 

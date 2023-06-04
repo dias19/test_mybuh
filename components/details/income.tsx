@@ -31,7 +31,7 @@ export default function Income() {
               </option>
             </select>
             <input
-              type="text"
+              type="number"
               placeholder="Сумма..."
               className="border-l-2 px-2 py-2"
               {...register('salary')}

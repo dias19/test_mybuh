@@ -1,4 +1,4 @@
-import Header from "@/components/header";
+import Header from "@/components/header/header";
 
 export const metadata = {
   title: "Онлайн калькулятор для ТОО на упрощенке",
