@@ -1,18 +1,10 @@
 import React from "react";
+import { useFormContext } from "react-hook-form";
 
-type Props = {
-  isAccountingForEmployee: boolean;
-  setIsAccountingForEmployee: (state: boolean) => void;
-};
+export default function Account() {
+  const methods=useFormContext();
 
-export default function Account({
-  isAccountingForEmployee,
-  setIsAccountingForEmployee,
-}: Props) {
-  const onChange = () => {
-    setIsAccountingForEmployee(!isAccountingForEmployee);
-  };
-
+  const {register}=methods;
   return (
     <div className="flex w-full pb-4 mb-4 border-b-2">
       <p className="font-bold text-lg w-1/6">Расчет</p>
@@ -21,17 +13,15 @@ export default function Account({
           <input
             type="checkbox"
             className="w-[18px] h-[18px] mr-1"
-            onChange={onChange}
-            checked={isAccountingForEmployee}
+            {...register('is_staff_member')}
           />
           <span className="text-lg">За работника в штате</span>
         </div>
         <div className="flex items-center mr-1">
           <input
             type="checkbox"
-            onChange={onChange}
             className="w-[18px] h-[18px] mr-1"
-            checked={!isAccountingForEmployee}
+            {...register('is_staff_member_gph')}
           />
           <span className="text-lg">За работника на ГПХ</span>
         </div>

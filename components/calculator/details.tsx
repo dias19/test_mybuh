@@ -1,7 +1,11 @@
 import { MONTH, YEARS } from "@/constants/constants";
 import React from "react";
+import { useFormContext } from "react-hook-form";
 
 export default function DetailsCalculation() {
+  const methods = useFormContext();
+
+  const {register}=methods;
   return (
     <div className="flex w-full justify-between pb-4 mb-4 border-b-2 p-2">
       <div className="border-2 rounded border-gray-200 px-2 py-2 w-1/4 mr-3">
@@ -14,9 +18,9 @@ export default function DetailsCalculation() {
         <span>УСН</span>
       </div>
       <div className="border-2 rounded border-gray-200 px-2 py-2 w-1/4 mr-3">
-        <select className="w-full">
+        <select className="w-full" {...register('year')}>
           {YEARS.map((year) => (
-            <option key={`year-${year}`}>{year}</option>
+            <option key={`year-${year}`} value={year}>{year}</option>
           ))}
         </select>
       </div>

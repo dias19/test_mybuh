@@ -1,6 +1,11 @@
 import React from "react";
+import { useFormContext } from "react-hook-form";
 
 export default function Income() {
+  const methods=useFormContext();
+
+  const {register, formState: {errors}}=methods;
+
   return (
     <div className="flex flex-col w-full pb-4 mb-4 border-b-2 p-2">
       <div className="flex items-center">
@@ -29,6 +34,7 @@ export default function Income() {
               type="text"
               placeholder="Сумма..."
               className="border-l-2 px-2 py-2"
+              {...register('salary')}
             />
           </div>
         </div>
@@ -37,11 +43,11 @@ export default function Income() {
         <p className="font-bold text-lg w-1/6">Вычеты</p>
         <div className="flex">
           <div className="flex items-center mr-4">
-            <input type="checkbox" className="w-[18px] h-[18px] mr-1" />
+            <input type="checkbox" className="w-[18px] h-[18px] mr-1" {...register('is_deduction_14')}/>
             <span className="text-lg pl-4">Вычет 14 МРП</span>
           </div>
           <div className="flex items-center mr-1">
-            <input type="checkbox" className="w-[18px] h-[18px] mr-1" />
+            <input type="checkbox" className="w-[18px] h-[18px] mr-1" {...register('is_deduction_882')}/>
             <span className="text-lg pl-4">Вычет 882 МРП</span>
           </div>
         </div>

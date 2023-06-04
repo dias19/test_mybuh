@@ -4,11 +4,11 @@ interface Data {
   is_staff_member: boolean;
   is_staff_member_gph: boolean;
   is_resident: boolean;
+  is_foreigner:boolean;
   is_citizen_cis: boolean;
   has_citizen_permit: boolean;
   is_deduction_14: boolean;
   is_deduction_882: boolean;
-  social_statuses: SocialStatuses[];
 }
 
 type SocialStatuses =
